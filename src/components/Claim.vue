@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <p class="claim">{{ msg }}</p>
+  <div class="claim__wrapper">
+    <p class="claim__heading">{{ msg }}</p>
     <p class="claim__sub">Lorem impsum. Images from Nasa</p>
   </div>
 </template>

@@ -1,19 +1,19 @@
 <template>
   <div>
     <Claim msg="Welcome"/>
-    <Search />
+    <SearchInput />
   </div>
 </template>
 
 <script>
-import Search from "@/components/Search";
 import Claim from "@/components/Claim";
+import SearchInput from "@/components/SearchInput";
 
 export default {
   name: 'home',
   components: {
+    SearchInput,
     Claim,
-    Search,
   },
 };
 </script>

@@ -10,7 +10,8 @@
                    type="text"
                    name="search"
                    v-model="searchValue"
-                   @input="handleInput">
+                   @input="handleInput"
+                   placeholder="search..">
         </div>
         <div>
             <ul>
@@ -19,17 +20,16 @@
                 </li>
             </ul>
         </div>
-
     </div>
 </template>
 
 <script>
     import axios from 'axios';
     import debounce from 'lodash.debounce';
-    import API from '../assets/services/APIServices';
+    import API from '@/assets/services/APIServices';
 
     export default {
-        name: "Search",
+        name: "SearchInput",
         data() {
             return {
                 searchValue: '',
@@ -57,7 +57,7 @@
     .search {
         &__wrapper {
             margin: 0;
-            padding: 40px;
+            padding: 40px 0;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -66,12 +66,19 @@
         &__element {
             display: flex;
             flex-direction: column;
-            width: 250px;
+            width: 100%;
+            margin-top: 40px;
         }
         &__input {
             height: 30px;
             border: 0;
-            border-bottom: 1px solid lightcoral;
+            border-bottom: 2px solid lightcoral;
+            background-color: transparent;
+
+            &:focus {
+                border-bottom-color: #bb5e3b;
+                outline: none;
+            }
         }
         &__label {
             border-left: 4px solid lightcoral;
