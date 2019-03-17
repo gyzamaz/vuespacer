@@ -9,46 +9,26 @@
                    id="search"
                    type="text"
                    name="search"
-                   v-model="searchValue"
-                   @input="handleInput"
-                   placeholder="search..">
-        </div>
-        <div>
-            <ul>
-                <li v-for="item in results" :key="item.data[0].nasa_id">
-                    {{ item.data[0].title }}
-                </li>
-            </ul>
+                   placeholder="search.."
+                   @input="searchChange"
+            >
         </div>
     </div>
 </template>
 
 <script>
-    import axios from 'axios';
-    import debounce from 'lodash.debounce';
-    import API from '@/assets/services/APIServices';
-
     export default {
         name: "SearchInput",
-        data() {
-            return {
-                searchValue: '',
-                results: []
+        props: {
+            value: {
+                required: true,
+                type: String,
             }
         },
-        methods: {
-            // eslint-disable-next-line
-            handleInput: debounce( function() {
-                axios.get(`${API}?q=${this.searchValue}&media_type=image`)
-                    .then((response) => {
-                        console.log(response);
-                        this.results = response.data.collection.items;
-
-                    })
-                    .catch((error) => {
-                        console.log(error)
-                    })
-            }, 650)
+        methods:{
+            searchChange(e) {
+                this.$emit('input', e.target.value)
+            }
         }
     }
 </script>
