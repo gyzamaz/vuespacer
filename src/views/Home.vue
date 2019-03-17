@@ -1,20 +1,19 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="Welcome"/>
+  <div>
+    <Claim msg="Welcome"/>
     <Search />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-import Search from "../components/Search";
+import Search from "@/components/Search";
+import Claim from "@/components/Claim";
 
 export default {
   name: 'home',
   components: {
+    Claim,
     Search,
-    HelloWorld,
   },
 };
 </script>
