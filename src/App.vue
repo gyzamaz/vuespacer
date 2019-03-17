@@ -1,5 +1,6 @@
 <template>
   <div class="app__wrapper">
+    <HeroImage />
     <div class="navigation">
       <router-link class="navigation__element" to="/">home</router-link>
       <router-link class="navigation__element" to="/about">about</router-link>
@@ -13,19 +14,24 @@
 
   body {
     font-family: 'Neuton', serif;
-    background: url(../src/assets/images/bg.jpg);
-    background-size: auto 100vh;
   }
   .app__wrapper {
     margin: 40px auto;
     width: 80%;
-  }
-  .navigation{
+ }
+  .navigation {
     display: flex;
     justify-content: space-between;
+
     &__element {
       font-size: 18px;
       font-weight: 800;
     }
   }
 </style>
+<script>
+  import HeroImage from "./components/HeroImage";
+  export default {
+    components: {HeroImage}
+  }
+</script>
