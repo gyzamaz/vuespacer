@@ -11,6 +11,7 @@
                    name="search"
                    placeholder="search.."
                    @input="searchChange"
+                   :class="{ 'search__input--dark': step }"
             >
         </div>
     </div>
@@ -23,6 +24,10 @@
             value: {
                 required: true,
                 type: String,
+            },
+            step: {
+                required: true,
+                type: Boolean
             }
         },
         methods:{
@@ -58,6 +63,9 @@
             &:focus {
                 border-bottom-color: #bb5e3b;
                 outline: none;
+            }
+            &--dark {
+                color: #353535;
             }
         }
         &__label {
