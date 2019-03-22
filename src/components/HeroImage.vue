@@ -16,7 +16,7 @@
         left: 0;
         height: 100%;
         width: 100%;
-        background-image: url(../../src/assets/images/bg.jpg);
+        background-image: url('../../src/assets/images/bg.jpg');
         z-index: -1;
         background-size: auto 100%;
     }

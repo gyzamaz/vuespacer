@@ -14,4 +14,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" />
+<style scoped lang="scss">
+  .claim__wrapper {
+    text-align: center;
+  }
+</style>
