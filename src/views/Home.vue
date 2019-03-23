@@ -1,15 +1,17 @@
 <template>
-    <div :class="['content__wrapper', {'flex-start' : step === 1}]">
+<div :class="['content__wrapper', {'flex-start' : step === 1}]">
     <Claim msg="Welcome" v-if="step === 0"/>
     <SearchInput v-model="searchValue" @input="searchInput" :step="step === 1"/>
-      <div class="content__results">
-        <Item v-for="item in results"
-              :item="item"
-              :key="item.data[0].nasa_id"
-              v-if="step === 1 && results && !loading"
-        />
-      </div>
-  </div>
+    <div class="content__results">
+      <Item v-for="item in results"
+            :item="item"
+            :key="item.data[0].nasa_id"
+            v-if="step === 1 && results && !loading"
+            @click.native="handleShowModal(item)"
+      />
+    </div>
+    <Modal v-if="showModal" @closeModal="showModal = false" />
+</div>
 </template>
 
 <script>
@@ -20,17 +22,20 @@ import API from '@/assets/services/APIServices';
 import Claim from "@/components/Claim";
 import SearchInput from "@/components/SearchInput";
 import Item from "@/components/Results/Item";
+import Modal from "@/components/Modal";
 const { mapState: mapStateStep } = createNamespacedHelpers('step');
 
 export default {
   name: 'home',
   components: {
+    Modal,
     Item,
     SearchInput,
     Claim,
   },
   data() {
     return {
+      showModal: false,
       searchValue: '',
       results: [],
       loading: false,
@@ -55,6 +60,10 @@ export default {
           console.log(error);
         });
     }, 650),
+    handleShowModal(item){
+        console.log(item);
+        this.showModal = true;
+    },
   },
 };
 </script>

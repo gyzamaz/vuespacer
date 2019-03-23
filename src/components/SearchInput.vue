@@ -9,7 +9,7 @@
                    id="search"
                    type="text"
                    name="search"
-                   placeholder="search.."
+                   placeholder="search example: moon"
                    @input="searchChange"
                    :class="{ 'search__input--dark': step }"
             >
@@ -59,6 +59,7 @@
             border: 0;
             border-bottom: 2px solid lightcoral;
             background-color: transparent;
+            font: 400 16px/120% 'Neuton', serif;
 
             &:focus {
                 border-bottom-color: #bb5e3b;
