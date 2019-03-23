@@ -10,7 +10,10 @@
             @click.native="handleShowModal(item)"
       />
     </div>
-    <Modal v-if="showModal" @closeModal="showModal = false" />
+    <Modal v-if="showModal"
+           :item-modal="itemModal"
+           @closeModal="showModal = false"
+    />
 </div>
 </template>
 
@@ -36,6 +39,7 @@ export default {
   data() {
     return {
       showModal: false,
+      itemModal: null,
       searchValue: '',
       results: [],
       loading: false,
@@ -61,7 +65,7 @@ export default {
         });
     }, 650),
     handleShowModal(item){
-        console.log(item);
+        this.itemModal = item;
         this.showModal = true;
     },
   },
@@ -87,5 +91,5 @@ export default {
   .flex-start {
       justify-content: start;
 
-    }
+  }
 </style>
