@@ -42,31 +42,24 @@
 </script>
 <style scoped lang="scss">
     .modal {
-        &__outer{
+        &__outer {
             display: block;
-            width: 70vw;
-            max-width: 100%;
-            height: 400px;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             position: fixed;
             z-index: 100;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
             background: white;
-            box-shadow: 0 0 200px 60px rgba(0, 0, 0, 0.8);
+            top: 0;
+            left: 0;
         }
         &__inner {
             position: absolute;
             top: 0;
             left: 0;
-            width: 88%;
-            height: 82%;
+            width: 92%;
+            height: 92%;
             overflow: auto;
-            padding: 4% 8% 4% 4%;
-            display: grid;
-            grid-template-columns: 50% 40%;
-            grid-gap: 5%;
+            padding: 4%;
         }
         &__photo {
             height: auto;
@@ -77,6 +70,33 @@
                 height: auto;
             }
         }
+        @media screen and (min-width: 768px) {
+            &__outer {
+                width: 70vw;
+                max-width: 100%;
+                height: 400px;
+                max-height: 100%;
+                position: fixed;
+                z-index: 100;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                box-shadow: 0 0 200px 60px rgba(0, 0, 0, 0.8);
+            }
+            &__inner {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 88%;
+                height: 82%;
+                overflow: auto;
+                padding: 4% 8% 4% 4%;
+                display: grid;
+                grid-template-columns: 50% 40%;
+                grid-gap: 5%;
+            }
+        }
     }
     .title {
         width: 100%;
@@ -85,7 +105,7 @@
     }
     .close {
         position: absolute;
-        top: 30px;
+        top: 20px;
         right: 20px;
         padding: 6px 14px;
         font: 700 18px/120% 'Arial';

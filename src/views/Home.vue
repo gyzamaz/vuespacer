@@ -66,7 +66,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    }, 5650),
+    }, 650),
     handleShowModal(item){
         this.itemModal = item;
         this.showModal = true;
