@@ -1,5 +1,6 @@
 <template>
 <div :class="['content__wrapper', {'flex-start' : step === 1}]">
+    <Loading v-if="loading" />
     <Claim msg="Welcome" v-if="step === 0"/>
     <SearchInput v-model="searchValue" @input="searchInput" :step="step === 1"/>
     <div class="content__results">
@@ -26,11 +27,13 @@ import Claim from "@/components/Claim";
 import SearchInput from "@/components/SearchInput";
 import Item from "@/components/Results/Item";
 import Modal from "@/components/Modal";
+import Loading from "@/components/Loading";
 const { mapState: mapStateStep } = createNamespacedHelpers('step');
 
 export default {
   name: 'home',
   components: {
+    Loading,
     Modal,
     Item,
     SearchInput,
@@ -63,7 +66,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    }, 650),
+    }, 5650),
     handleShowModal(item){
         this.itemModal = item;
         this.showModal = true;
